@@ -1,4 +1,4 @@
-package com.devnunu.sample.ui.theme
+package com.devnunu.sample.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

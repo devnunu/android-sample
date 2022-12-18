@@ -12,7 +12,7 @@ import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.devnunu.sample.ui.bottomSheetSample.BottomSheetSampleActivity
-import com.devnunu.sample.ui.theme.SampleTheme
+import com.devnunu.sample.theme.SampleTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

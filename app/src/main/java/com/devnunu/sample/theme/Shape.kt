@@ -1,4 +1,4 @@
-package com.devnunu.sample.ui.theme
+package com.devnunu.sample.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
