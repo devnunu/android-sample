@@ -1,13 +1,32 @@
-package com.devnunu.sample.components
+package com.devnunu.sample.components.bottomSheet
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetState
+import androidx.compose.material.ModalBottomSheetValue
+import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+fun rememberSampleBottomSheetState(
+    onDismissBottomSheet: () -> Unit
+) = rememberModalBottomSheetState(
+    initialValue = ModalBottomSheetValue.Hidden,
+    confirmStateChange = {
+        if (it == ModalBottomSheetValue.Hidden) {
+            onDismissBottomSheet()
+            return@rememberModalBottomSheetState false
+        }
+        if (it == ModalBottomSheetValue.HalfExpanded) {
+            return@rememberModalBottomSheetState false
+        }
+        true
+    })
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable

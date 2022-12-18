@@ -16,7 +16,7 @@ class BottomSheetSampleViewModel(
         }
     }
 
-    fun onClickOpenBottomSheet(tag: BottomSheetSampleTag) = withState { state ->
+    fun onClickOpenBottomSheet(tag: BottomSheetSampleTag) {
         setState {
             copy(bottomSheetState = BottomSheetState.Opened(tag))
         }

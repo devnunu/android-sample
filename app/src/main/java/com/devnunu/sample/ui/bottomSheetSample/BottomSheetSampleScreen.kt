@@ -5,18 +5,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ModalBottomSheetValue
-import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.airbnb.mvrx.compose.collectAsState
 import com.devnunu.sample.ui.bottomSheetSample.components.BottomSheetSampleBottomSheet
-import com.devnunu.sample.model.BottomSheetState
-
+import com.devnunu.sample.components.bottomSheet.rememberSampleBottomSheetState
 import com.devnunu.sample.components.button.SampleButton
 import com.devnunu.sample.components.scaffold.BaseScaffold
 
@@ -28,29 +24,12 @@ fun BottomSheetSampleScreen(
 
     val viewModelSheetState by viewModel.collectAsState { it.bottomSheetState }
 
-    val modalBottomSheetState = rememberModalBottomSheetState(
-        initialValue = ModalBottomSheetValue.Hidden,
-        confirmStateChange = {
-            if (it == ModalBottomSheetValue.Hidden) {
-                viewModel.onCloseBottomSheet()
-                return@rememberModalBottomSheetState false
-            }
-            if (it == ModalBottomSheetValue.HalfExpanded) {
-                return@rememberModalBottomSheetState false
-            }
-            true
-        })
-
-    LaunchedEffect(viewModelSheetState) {
-        when (viewModelSheetState) {
-            is BottomSheetState.Closed -> modalBottomSheetState.animateTo(ModalBottomSheetValue.Hidden)
-            is BottomSheetState.Opened -> modalBottomSheetState.animateTo(ModalBottomSheetValue.Expanded)
-        }
-    }
-
     BaseScaffold(
         bottomSheetView = BottomSheetSampleBottomSheet(
-            modalBottomSheetState = modalBottomSheetState,
+            viewModelSheetState = viewModelSheetState,
+            modalBottomSheetState = rememberSampleBottomSheetState(
+                onDismissBottomSheet = viewModel::onCloseBottomSheet
+            ),
             viewModel = viewModel
         )
     ) {

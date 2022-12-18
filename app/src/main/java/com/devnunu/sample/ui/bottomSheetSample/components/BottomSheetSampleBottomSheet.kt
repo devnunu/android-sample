@@ -8,16 +8,19 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.dp
 import com.airbnb.mvrx.compose.collectAsState
 import com.devnunu.sample.ui.bottomSheetSample.BottomSheetSampleViewModel
-import com.devnunu.sample.components.CZBottomSheetWrapper
 import com.devnunu.sample.components.scaffold.ScaffoldBottomSheetView
+import com.devnunu.sample.components.bottomSheet.CZBottomSheetWrapper
+import com.devnunu.sample.model.BottomSheetState
 import com.devnunu.sample.ui.bottomSheetSample.BottomSheetSampleTag
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun BottomSheetSampleBottomSheet(
+    viewModelSheetState: BottomSheetState<BottomSheetSampleTag>,
     modalBottomSheetState: ModalBottomSheetState,
     viewModel: BottomSheetSampleViewModel
 ) = ScaffoldBottomSheetView(
+    viewModelSheetState = viewModelSheetState,
     sheetState = modalBottomSheetState,
     sheetShape = RoundedCornerShape(topStart = 10.dp, topEnd = 10.dp)
 ) {
