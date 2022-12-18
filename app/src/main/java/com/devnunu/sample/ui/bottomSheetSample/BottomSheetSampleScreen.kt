@@ -16,8 +16,9 @@ import androidx.compose.ui.unit.dp
 import com.airbnb.mvrx.compose.collectAsState
 import com.devnunu.sample.ui.bottomSheetSample.components.BottomSheetSampleBottomSheet
 import com.devnunu.sample.model.BottomSheetState
-import com.devnunu.sample.components.BaseScaffold
+
 import com.devnunu.sample.components.button.SampleButton
+import com.devnunu.sample.components.scaffold.BaseScaffold
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -25,7 +26,7 @@ fun BottomSheetSampleScreen(
     viewModel: BottomSheetSampleViewModel
 ) {
 
-    val bottomSheetState by viewModel.collectAsState { it.bottomSheetState }
+    val viewModelSheetState by viewModel.collectAsState { it.bottomSheetState }
 
     val modalBottomSheetState = rememberModalBottomSheetState(
         initialValue = ModalBottomSheetValue.Hidden,
@@ -40,8 +41,8 @@ fun BottomSheetSampleScreen(
             true
         })
 
-    LaunchedEffect(bottomSheetState) {
-        when (bottomSheetState) {
+    LaunchedEffect(viewModelSheetState) {
+        when (viewModelSheetState) {
             is BottomSheetState.Closed -> modalBottomSheetState.animateTo(ModalBottomSheetValue.Hidden)
             is BottomSheetState.Opened -> modalBottomSheetState.animateTo(ModalBottomSheetValue.Expanded)
         }

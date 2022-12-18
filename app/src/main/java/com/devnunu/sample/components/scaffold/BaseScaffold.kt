@@ -1,4 +1,4 @@
-package com.devnunu.sample.components
+package com.devnunu.sample.components.scaffold
 
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material.*

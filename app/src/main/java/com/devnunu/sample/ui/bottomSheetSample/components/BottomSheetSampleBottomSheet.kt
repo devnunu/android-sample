@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.dp
 import com.airbnb.mvrx.compose.collectAsState
 import com.devnunu.sample.ui.bottomSheetSample.BottomSheetSampleViewModel
 import com.devnunu.sample.components.CZBottomSheetWrapper
-import com.devnunu.sample.components.ScaffoldBottomSheetView
+import com.devnunu.sample.components.scaffold.ScaffoldBottomSheetView
 import com.devnunu.sample.ui.bottomSheetSample.BottomSheetSampleTag
 
 @OptIn(ExperimentalMaterialApi::class)
