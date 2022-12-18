@@ -4,19 +4,16 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.airbnb.mvrx.compose.collectAsState
-import com.devnunu.sample.ui.bottomSheetSample.components.BottomSheetSampleBottomSheet
-import com.devnunu.sample.components.bottomSheet.rememberSampleBottomSheetState
 import com.devnunu.sample.components.button.SampleButton
 import com.devnunu.sample.components.scaffold.BaseScaffold
+import com.devnunu.sample.ui.bottomSheetSample.components.BottomSheetSampleBottomSheet
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun BottomSheetSampleScreen(
     viewModel: BottomSheetSampleViewModel
@@ -27,9 +24,6 @@ fun BottomSheetSampleScreen(
     BaseScaffold(
         bottomSheetView = BottomSheetSampleBottomSheet(
             viewModelSheetState = viewModelSheetState,
-            modalBottomSheetState = rememberSampleBottomSheetState(
-                onDismissBottomSheet = viewModel::onCloseBottomSheet
-            ),
             viewModel = viewModel
         )
     ) {
