@@ -1,15 +1,17 @@
 package com.devnunu.sample
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.material.Button
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.devnunu.sample.ui.bottomSheetSample.BottomSheetSampleActivity
 import com.devnunu.sample.ui.theme.SampleTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,27 +19,24 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SampleTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
+                Column(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Greeting("Android")
+                    Button(
+                        onClick = { startBottomSheetSampleActivity() }
+                    ) {
+                        Text(text = "Bottom Sheet Sample")
+                    }
                 }
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    SampleTheme {
-        Greeting("Android")
+    private fun startBottomSheetSampleActivity() {
+        startActivity(
+            Intent(this, BottomSheetSampleActivity::class.java)
+        )
     }
 }
