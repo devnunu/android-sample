@@ -1,4 +1,4 @@
-package com.devnunu.sample
+package com.devnunu.sample.ui.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,6 +11,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.devnunu.sample.components.button.SampleButton
 import com.devnunu.sample.ui.bottomSheetSample.BottomSheetSampleActivity
 import com.devnunu.sample.theme.SampleTheme
 
@@ -24,11 +25,10 @@ class MainActivity : ComponentActivity() {
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Button(
+                    SampleButton(
+                        text = "Bottom Sheet Sample",
                         onClick = { startBottomSheetSampleActivity() }
-                    ) {
-                        Text(text = "Bottom Sheet Sample")
-                    }
+                    )
                 }
             }
         }
