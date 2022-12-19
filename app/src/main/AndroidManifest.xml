@@ -28,6 +28,21 @@
             android:name=".ui.bottomSheetSample.BottomSheetSampleActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dtoSample.first.DtoSampleFirstActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dtoSample.second.DtoSampleSecondActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dtoSample.third.DtoSampleThirdActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
